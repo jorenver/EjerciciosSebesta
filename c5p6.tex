@@ -1,0 +1,81 @@
+\subsubsection{Pregunta 6: Escriba programas de prueba en C + +, Java, C \# y para determinar el alcance de una variable declarada en una sentencia for. Específicamente, el código debe determinar si una variable es visible después del cuerpo de la declaración for.}
+
+Java:  Este ejemplo llena un arreglo de 10 elementos con los números del 1 al 10, usando la variable uno declarada en el cuerpo del for, luego se pretende imprimir dicha variable, en un lugar fuera del for.\\
+
+\lstset{language = Java} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+public class Prueba{
+	public static void main(String[] args){
+		int arreglo[];
+		arreglo=new int[10];
+		for(int i=0;i<10;i++){
+			int uno=1;
+			arreglo[i]=uno+i;
+		}
+		System.out.printf("%i",uno);
+	}
+}
+}
+\end{lstlisting}
+RESULTADOS: \\
+Prueba.java:12: error: cannot find symbo\\l
+ symbol:   variable uno\\
+ location: class Prueba\\
+1 error\\
+
+Error de compilación, la variable no es visible esta fuera del alcance.\\
+\\
+En C++\\
+Usaré el mismo ejemplo anterior, para probar:\\
+
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+int main(){
+	int i;
+	int arreglo[10];
+	
+	for(i=0;i<10;i++){
+		int uno=1;
+		arreglo[i]=uno+i;
+	}
+	std::cout<<uno;
+	getch();
+	return 0;
+}
+\end{lstlisting}
+
+
+RESULTADOS:\\ 
+error C2065: 'uno' : identificador no declarado\\
+De la misma manera, ocurre un error de compilación porque la variable no es visible.
+
+Ejemplo en C \# : \\
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+namespace PruebaCchar
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int i;
+            int[] arreglo = new int[10];
+	
+	        for(i=0;i<10;i++){
+		        int uno=1;
+		        arreglo[i]=uno+i;
+	        }
+            Console.Write(uno);
+            Console.ReadKey();
+        }
+    }
+}
+\end{lstlisting}
+
+RESULTADOS:\\ 
+Error de compilación: El nombre 'uno' no existe en el contexto actual\\
+
+En los tres lenguajes sucede que la variable que es declarada dentro de un for no es visible en otro sitio.
+
