@@ -1,0 +1,83 @@
+\subsubsection{Pregunta 7: Escriba un programa C que haga un gran número de referencias a elementos de una matriz utilizando únicamente el subíndice. Escribe un segundo programa que hace las mismas operaciones pero utiliza los punteros y la aritmética de punteros . Comparar la eficacia del tiempo de los dos programas. ¿Cuál de los dos programas es probable que sea más fiable? ¿Por qué?}
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char** argv) {
+    int matriz[5][5];
+    int i, j;
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            matriz[i][j] = i;
+        }
+        printf("\n");
+    }
+    matriz[1][1] = 0;
+    matriz[2][2] = 0;
+    matriz[5][3] = 0;
+    matriz[0][0] = 100;
+    matriz[5][5] = 100;
+    
+    printf("\n");
+    
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("%d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return (EXIT_SUCCESS);
+}
+
+
+\end{lstlisting}
+
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*
+ * 
+ */
+int main(int argc, char** argv) {
+    int matriz[5][5];
+    int *ptr1, *ptr2,*ptr5;
+    int i, j,valor;
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            matriz[i][j] = i;
+            printf("%d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    ptr1=matriz[1];
+    ptr2=matriz[2];
+    ptr5=matriz[4];
+    int columna=4;
+    *(ptr1+columna)=9;
+    *(ptr2+columna)=9;
+    *(ptr5+columna)=9;
+    
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            printf("%d", matriz[i][j]);
+        }
+        printf("\n");
+    }
+    return (EXIT_SUCCESS);
+}
+
+\end{lstlisting}
+
+En el primero ejemplo se modifican varios valores la matriz utilizando subindices mientras que en el ejemplo dos se usa punteros para lograr el mismo efecto.La notacion de subindices es la forma mas comun de acceder a datos en una matriz. La aritmetica de punteros es muy util es ciertos escenarios y le da mayor flexibilidad al programador pero puede ser un tanto inseguro si no se tiene el debido cuidado ya que si ejecutamos mal los desplazamientos podemos perder las referencias y hacer operaciones invalidas. En algunos casos puede ser un poco tedioso.
+No hay mucha diferencia entre la eficiencia de los dos codigos ejecutados.
+
+
