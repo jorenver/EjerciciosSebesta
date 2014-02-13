@@ -1,0 +1,32 @@
+\subsubsection{Write a test program in your favorite language that determines and 
+outputs the precedence and associativity of its arithmetic and Boolean 
+operators.}
+
+Escriba su respuesta con claridad. En las secciones de código utilice listings.
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+void precedencia{
+	int a,b,c,d,r;
+	a=3;
+	b=5;
+	c=9
+	d=15;
+	r=a+c*d;
+	printf("precedencia Aritmetica\n")
+	printf("\na=3\nb=5\nc=9\nd=15");
+	printf("a+b-c*d= %d\n",r);
+	printf("a*b+c-d= %d\n",r);
+	printf("a*b-c/d= %d\n",r);
+	printf("a/b+c*d= %d\n",r);
+	
+	printf("Precedencia Boleana\n");
+	printf(" 1 && 0 || 1 %d\n",(1 && 0 || 1));
+	printf(" 1 || 0 && 1 %d\n",(1 || 0 && 1));
+	printf(" ¬ 0 && 1 %d\n",(¬ 0 && 1));
+	
+	
+	
+}
+	
+\end{lstlisting}

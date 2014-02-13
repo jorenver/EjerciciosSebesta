@@ -1,0 +1,49 @@
+\subsubsection{Write three functions in C or C++: one that declares a large array stati-cally, one that declares the same large array on the stack, and one that  creates the same large array from the heap. Call each of the subprograms a large number of times (at least 100,000) and output the time required by each. Explain the results}
+
+Escriba su respuesta con claridad. En las secciones de código utilice listings.
+
+\lstset{language = Python} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+#include <stdio.h>
+#include <time.h>
+#define MAX 1000
+void Stack();
+void Heap();
+void main(){
+	int i ,t1,t2,t3,dt1,dt2;
+	t1 = time(NULL);
+	printf("%d\n",t1);
+	for (i = 0; i < 100000; i++)
+		Stack();
+	t2 = time(NULL);
+	printf("%d\n", t2);
+	for (i = 0; i < 100000; i++)
+		Heap();
+	t3 = time(NULL);
+	printf("%d\n", t3);
+	dt1 = t2 - t1;
+	dt2 = t3 - t2;
+	printf("%d    %d\n", dt1, dt2);
+	while (getchar() != '\n')
+		getchar();
+}
+
+void Stack(){
+	int i;
+	int Arreglo[MAX];
+	for (i = 0; i < MAX; i++)
+		Arreglo[i] = i;
+}
+
+void Heap(){
+	int *Arr;
+	int i;
+	Arr = (int*)malloc(sizeof(int)*MAX);
+	for (i = 0; i < MAX; i++)
+		Arr[i] = i;
+}
+
+\end{lstlisting}
+despues de ejecutar el codigo  nos damos cuenta que el tiempo en operar sobre el arreglo declarado en el Heap es mucho mayor al declarado en el Stack. Esto se debe ha que las variables almacenadas en el Stack estan mucho mas organizadas que las del Heap y accesarlas es mucho mas rapido
+
+	
