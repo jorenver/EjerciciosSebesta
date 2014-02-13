@@ -1,3 +1,19 @@
 \subsubsection{Pregunta 4: Escriba un script en Python con subprogramas triplemente anidados, donde cada subprograma referencie a variables que han sido definidas en otros niveles de la jerarquía}
 
 Escriba su respuesta con claridad. En las secciones de código utilice listings.
+
+\lstset{language = Python} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+def operar ():
+	x=3
+	y=5
+	def operar2():
+		z=x-2
+		a=5*y
+		def operar3():
+			i=x+y-5
+			j=x+2*y	
+	z=z*y
+	a=z+i
+	j=j-x
+\end{lstlisting}
