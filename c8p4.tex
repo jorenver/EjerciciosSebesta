@@ -1,0 +1,42 @@
+\subsubsection{Pregunta 4: Considere el siguiente segmento de un programa C. Reescríbalo sin usar gotos o breaks.}
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+s.
+j = -3;
+for (i = 0; i < 3; i++) {
+switch (j + 2) {
+case 3:
+case 2: j--; break;
+case 0: j += 2; break;
+default: j = 0;
+}
+if (j > 0) break;
+j = 3 - i;
+}
+\end{lstlisting}
+
+Reescrito:\\
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+void main(){
+int i,j = -3;
+	for (i = 0; i < 3; i++) {
+	switch (j + 2) {
+	case 3:
+	case 2: j--;
+	case 0: j += 2;
+	default: j = 0;
+	}
+	if (j > 0)
+	j = 3 - i;
+	}
+
+
+	printf("%i\n%i",j,i);
+}
+\end{lstlisting}
+
+Al inicio los valores de 'i' y 'j' fueron 1 y 3 respectivamente, al borrar todos los break los valores cambiaron a 0 y 3 respectivamente, Porque en C, al no incluir un break al terminar un case, continuara con el otro case. Es un muye sencillo darse cuenta de porque sucede esto, basta con hacer una prueba de escritorio.\\
+

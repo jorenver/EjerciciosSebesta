@@ -1,0 +1,69 @@
+\subsubsection{Pregunta 5:  Escriba una función en C que incluya la siguiente  secuencia de declaraciones:\\
+x = 21;\\
+int x;\\
+x = 42;\\
+Ejecute  el programa y explique los resultados. Reescriba el mismo códifgo en  C++
+y Java y compare los resultados.}
+
+Escrito en C:\\
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+void main(){
+	int x = 21;
+	funcion_Prueba(x);
+	printf("%i",x);
+	getch();
+}
+
+
+void funcion_Prueba(int numero){
+	int x;
+	x = 42;
+	numero=x;
+}
+\end{lstlisting}
+RESULTADOS: 21\\\
+Como se puede apreciar, el valor de la variable x se mantiene en 21, ser pasada como argumento en la función funciónPrueba no alteró su valor a pesar de que ocurre una igualación a 42 en numero=x; esto se debe a que en C la variable ésta siendo pasada por valor, por lo cual se crea una copia ésta.\\ 
+Ahora veamos como reaccionán Java y C++:
+
+Escrito en Java:\\
+\lstset{language = Java}
+\begin{lstlisting}[frame = single] %Comienzo del Código
+public class Prueba{
+	public static void main(String[] args){
+		int x=21;
+		funcion_Prueba(x);
+		System.out.printf("%d",x);
+	}
+	public static void funcion_Prueba(int numero){
+		int x;
+		x = 42;
+		numero=x;
+	}
+}
+\end{lstlisting}
+
+RESULTADOS: 21\\\
+
+
+Escrito en C++:\\
+\lstset{language = C++}
+\begin{lstlisting}[frame = single] %Comienzo del Código
+int main(){
+	int x=21;
+	funcion_Prueba(x);
+	std::cout<<x;
+	getch();
+	return 0;
+}
+
+void funcion_Prueba(int numero){
+	int x;
+	x = 42;
+numero=x;
+}
+RESULTADOS: 21\\\
+Ambos resultados son iguales, esto era de esperarse ya que tanto Java y C++, se basan en C.
+\end{lstlisting}
+

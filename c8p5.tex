@@ -1,0 +1,31 @@
+\subsubsection{Pregunta 5: En una carta al editor de CACM, Rubin (1987) se utiliza el siguiente segmento de código como evidencia de que la legibilidad de algún código con gotos es mejor que el código equivalente sin gotos. Este código busca la  primera fila de una matriz de enteros de n por n llamada X que  tiene nada más que valores cero; Reescribe este codigo sin gotos en uno de los siguientes lenguajes: C, C++, Java, C \#, o Ada. Compare la legibilidad de su código con la del código del ejemplo.
+}
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+for (i = 1; i <= n; i++) {
+for (j = 1; j <= n; j++)
+if (x[i][j] != 0)
+goto reject;
+println ('First all-zero row is:', i);
+break;
+reject:
+}
+
+\end{lstlisting}
+
+Reescrito e Java:\\
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+for (int i = 1; i<=n; i++){
+for (int j = 1; j <=n; j++){
+if( x [ i ] [ j ] !=0 ) {
+System.out.println(  i );
+break;
+}
+}
+}
+\end{lstlisting}
+
+Comparando la legibilidad, la segunda opción me parece más legible porque en la primera se dificulta un poco la lectura del flujo del programa, en la segunda opción se puede leer más fácilmente.
