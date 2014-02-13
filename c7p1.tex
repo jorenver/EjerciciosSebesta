@@ -1,0 +1,24 @@
+\subsubsection{Pregunta 1: Ejecute el código dado en el problema 13 en algún sistema que soporta C para determinar los valores de sum1 y Sum2. Explicar los resultados.}
+
+
+Codigo:\\
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+int fun(int *k) {
+*k += 4;
+return 3 * (*k) - 1;
+}
+
+void main() {
+int i = 10, j = 10, sum1, sum2;
+sum1 = (i / 2) + fun(&i);
+sum2 = fun(&j) + (j / 2);
+}
+\end{lstlisting}
+
+Resultados:\\
+La función fun recibe un puntero y realiza operaciones sobre la variable a la cual hace referencia y retorna un valor.
+La variable sum1 almacenara la suma entre dos operandos (i/2) y el resultado que retorne la llamada a fun(&1). Lo que ocurre es lo siguiente: la operación se realiza de izquierda a derecha, primero se divide la variable i que es igual a 10 para 2, el resultado de esto es 5, este 5 espera a ser sumado con el resultado de fun(&i). En la función fun el puntero k hace referencia a i=10, este valor se aumenta en cuatro, y luego se retorna (3*14)-1 que es igual a 41. Entonces el 5 se suma con el 41 y el resultado es 46. 
+Ahora la variable sum2 hará algo parecido pero no equivalente, en este caso el resultado de llamar a fun(&j) se sumara a (j/2). Lo que ocurre es lo siguiente: En la función fun el puntero k hace referencia a j=10 este valor es aumentado en cuatro, y luego se retorna (3*14)-1 que es igual a 41. El valor de j ha cambiado a 14. Ahora este resultado espera a ser sumado con la operación de (j/2) que tiene por resultado el número 7. Entonces el 41 se suma con el 7 y da como resultado 48

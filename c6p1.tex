@@ -1,0 +1,50 @@
+\subsubsection{Pregunta 1: Diseñar un conjunto de programas de prueba simples para determinar las reglas de compatibilidad de tipo en el lenguaje C}
+
+1.- En C dos tipos se consideran equivalentes funcionalmente cuando pueden emplearse indistintamente en un mismo contexto. Por ejemplo:\\
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+void imprimir (int mat[],int n){
+	int i;
+	for(i=0;i<n;i++){
+		printf(“%d ”,mat[i]);
+	}
+}
+
+int arreglo_uno[10], arreglo_dos[40];
+// …
+imprimir (arreglo_uno,10);
+imprimir(arreglo_dos,40);
+
+\end{lstlisting}
+En este contexto la variable arreglo_uno y arreglo_dos son funcionalmente equivalentes\\
+
+2.- Cada struct, enum , y union crea un nuevo tipo que no es equivalente a la de cualquier otro tipo. Por ejemplo:\\
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+typedef struct Persona{
+    int edad,n_cedula;
+    char nombre[];
+}Persona;
+
+typedef struct Estudiante{
+    int edad,n_cedula;
+    char nombre[];
+}Estudiante;
+
+\end{lstlisting}
+
+A pesar de tener campos exactamente iguales las variables de tipo Persona y Estudiante representan dos entidades distintas.\\
+
+
+3.- Cualquier tipo definido con typedef es de tipo equivalente a su tipo primario por ejemplo:\\
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+typedef int Integer;
+\end{lstlisting}
+Podemos usar Integer como un alias del tipo de dato int\\
+
+

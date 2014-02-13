@@ -1,0 +1,45 @@
+\subsubsection{Pregunta 2: Determinar si algún compilador de C al que se tiene acceso implementa la función free.}
+
+El compilador Cygwin asociado con Netbeans permite usar la función free que nos sirve para liberar espacios de memoria que hemos separado de forma dinámica con la función malloc, a continuación se presenta un ejemplo de su uso\\
+
+\lstset{language = C} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+ typedef enum {ROJO, BLANCO, NEGRO, AZUL} colores;
+ 
+ typedef struct carro{
+   colores color;
+   int max_vel;
+ } carro;
+ 
+ int main(){
+   int i,size;
+   carro* myArray;
+   carro* carro_actual; 
+   
+   printf("Ingrese el numero de carros: ");
+   scanf("%d",&size);
+   
+   myArray= (carro*) malloc( size* sizeof(carro));
+
+   for (i=0;i<size;i++)
+   {
+      carro_actual=(myArray + i );
+      carro_actual->color= i%4;
+      carro_actual->max_vel= i;
+   }
+   
+   free(myArray);
+   return 0;
+}
+
+\end{lstlisting}
+
+
+
+
+
+
