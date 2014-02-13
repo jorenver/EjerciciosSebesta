@@ -1,8 +1,6 @@
-\subsubsection{Write a test program in your favorite language that determines and 
-outputs the precedence and associativity of its arithmetic and Boolean 
-operators.}
+\subsubsection{Write a test program in your favorite language that determines and outputs the precedence and associativity of its arithmetic and Boolean operators.}
 
-Escriba su respuesta con claridad. En las secciones de código utilice listings.
+%Escriba su respuesta con claridad. En las secciones de código utilice listings.
 
 \lstset{language = C} 
 \begin{lstlisting}[frame = single] %Comienzo del Código
@@ -23,8 +21,7 @@ void precedencia{
 	printf("Precedencia Boleana\n");
 	printf(" 1 && 0 || 1 %d\n",(1 && 0 || 1));
 	printf(" 1 || 0 && 1 %d\n",(1 || 0 && 1));
-	printf(" ¬ 0 && 1 %d\n",(¬ 0 && 1));
-	
+	printf(" ! 0 && 1 %d\n",(! 0 && 1));
 	
 	
 }

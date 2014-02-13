@@ -1,12 +1,12 @@
 \subsubsection{Write three functions in C or C++: one that declares a large array stati-cally, one that declares the same large array on the stack, and one that  creates the same large array from the heap. Call each of the subprograms a large number of times (at least 100,000) and output the time required by each. Explain the results}
 
-Escriba su respuesta con claridad. En las secciones de código utilice listings.
+%Escriba su respuesta con claridad. En las secciones de código utilice listings.
 
-\lstset{language = Python} 
+\lstset{language = C} 
 \begin{lstlisting}[frame = single] %Comienzo del Código
-#include <stdio.h>
-#include <time.h>
-#define MAX 1000
+include <stdio.h>
+include <time.h>
+define MAX 1000
 void Stack();
 void Heap();
 void main(){
