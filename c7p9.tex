@@ -1,0 +1,41 @@
+\subsubsection{Pregunta 9:Escriba un programa en C + +, Java o C # que muestra el orden de evaluación de las expresiones utilizadas como parámetros actuales a un método.}
+
+
+Codigo:\\
+
+\lstset{language = Java} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+class A{
+    int a=20;
+    int b=20;
+    
+    int multiplicar(int x){
+        x=50;
+        return 2*x;
+    }
+    
+    void calculo(){
+        a=a+multiplicar(a);
+        b=multiplicar(b)+b;
+        System.out.println("valor de a:"+a);
+        System.out.println("valor de b:"+b);
+    }
+    
+}
+
+
+public class JavaApplication {
+    
+    public static void main(String[] args) {
+        A a=new A();
+        a.calculo();
+    }
+}
+
+\end{lstlisting}
+
+Resultados:
+El resultado de las dos operaciones efectuadas dentro de la funcion calculo es exactamente el mismo, en este caso, la evaluacion se realiza de izquierda a derecha, ya que los variables son pasadas por valor, lo que ocurre dentro de la funcion no afecta a las variables a y b, no existen cambios
+Al final se imprime en pantalla: valor de a: 120 valor de b:120
+
