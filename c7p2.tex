@@ -1,0 +1,92 @@
+\subsubsection{Pregunta 2: Reescriba el programa de Programming Exercise 1 en  C++, Java, y C \#, ejecútelos, y  compare los resultados.}
+
+
+Ejemplo escrito en C++:\\
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+int main(){
+	int i = 10, j = 10, sum1, sum2;
+	sum1 = (i / 2) + fun(&i);
+	sum2 = fun(&j) + (j / 2);
+	std::cout<<sum1;
+	std::cout<<sum2;
+	getch();
+	return 0;
+}
+
+int fun(int *k) {
+*k += 4;
+return 3 * (*k) - 1;
+}
+
+}
+\end{lstlisting}
+RESULTADOS: \\
+sum1 = 46
+sum2 = 48\\
+Los operandos son evaluados de izquierda a derecha, en el caso de sum1 el resultados es 46 porque primero de evalúa 'i/2' igual a 5, y luego se evalúa la función la cuál  retorna 41 porque el valor de la variable i sigue siendo 10. Por otro lado sum2 toma el valor de 48 porque primero se evalúa 'fun(\&j)'  esto retorna 41, pero el valor de 'j' cambia a 14, y al efectuar 'j/2' retorna 7, y al sumar da 48.\\
+
+En java:\\
+
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+public class Prueba{
+	public static void main(String[] args){
+		int sum1,sum2;
+		Integer i,j;
+		i=new Integer(10);
+		j=new Integer(10);
+		sum1=(i.intValue()/2) + fun(i);
+		sum2=fun(j)+ (j.intValue()/2);
+		System.out.printf("%d\n%d",sum1,sum2);
+		}
+	public static int fun(Integer k){
+		k=k.intValue()+4;
+		return 3*(k.intValue())-1;
+		
+	}
+}
+\end{lstlisting}
+
+RESULTADOS: \\
+sum1 = 46
+sum2 = 46\\
+
+Con este código no se puede concluir si los operandos son evaluados de izquierda a derecha o viceversa porque sum1 y sum2 toman el mismo valor 46. Pero se puede concluir que una referencia a un objeto es pasado por valor en una función, porque el valor de las variables 'i' y 'j' no se vió afectada.\\
+
+En C \#:
+
+
+\lstset{language = C++} 
+\begin{lstlisting}[frame = single] %Comienzo del Código
+
+
+namespace PruebaCchar
+{
+    class Program
+    {
+        unsafe static void Main(string[] args)
+        {
+            int i = 10, j = 10, sum1, sum2;
+            sum1 = (i / 2) + fun(&i);
+            sum2 = fun(&j) + (j / 2);
+            Console.Write(sum1);
+            Console.Write(sum2);
+            Console.ReadKey();
+        }
+
+       unsafe public static int fun(int *k){
+            *k += 4;
+            return 3 * (*k) - 1;
+        }
+    }
+}
+
+\end{lstlisting}
+
+RESULTADOS: \\
+sum1 = 46
+sum2 = 48\\
+Los operandos se evalúan de izquierda a derecha, tiene el mismo comportamiento que C++
